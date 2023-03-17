@@ -8,6 +8,9 @@ require 'faker'
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+Airport.destroy_all
+puts 'destroyed existing airports and flights'
+
 airport_names_and_codes = [
   %w[Manhattan MHK], %w[Minneapolis MSP], %w[New\ Orleans MSY],
   %w[New\ York NYC], %w[San\ Francisco SFO], %w[Washington\ DC WAS]
