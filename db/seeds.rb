@@ -7,8 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 airport_names_and_codes = [
-  ['Manhattan', 'MHK'], ['Minneapolis', 'MSP'], ['New Orleans', 'MSY'],
-  ['New York', 'NYC'], ['San Francisco', 'SFO'], ['Washington DC', 'WAS']
+  %w[Manhattan MHK], %w[Minneapolis MSP], %w[New\ Orleans MSY],
+  %w[New\ York NYC], %w[San\ Francisco SFO], %w[Washington\ DC WAS]
 ]
 
 airport_names_and_codes.each do |item |
