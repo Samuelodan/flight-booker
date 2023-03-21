@@ -3,17 +3,17 @@
 <%= form_with url: '/flights', method: :get do |f| %>
   <div>
     <%= f.label :departure_airport, "from where?" %>
-    <%= f.select :departure_airport, @airport_options %>
+    <%= f.select :departure_airport, @airport_options, { prompt: "Select Airport" } %>
   </div>
 
   <div>
     <%= f.label :arrival_airport, "to where?" %>
-    <%= f.select :arrival_airport, @airport_options %>
+    <%= f.select :arrival_airport, @airport_options, { prompt: "Select Airport" } %>
   </div>
 
   <div>
     <%= f.label :flight_date %>
-    <%= f.select :flight_date, @flight_dates %>
+    <%= f.select :flight_date, @flight_dates, { prompt: "Pick a Date" } %>
   </div>
 
   <div>
