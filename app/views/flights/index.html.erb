@@ -25,3 +25,9 @@
     <%= f.submit "Find Flights!" %>
   </div>
 <% end %>
+
+<% if @found_flights %>
+  <% @found_flights.each do |flight| %>
+    <h3><%= flight %></h3>
+  <% end %>
+<% end %>
