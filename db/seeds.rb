@@ -21,17 +21,20 @@ airport_names_and_codes.each do |item |
 end
 puts 'created airports'
 
-31.times do |day|
-  current_datetime =
-    Faker::Time.between_dates(from: Date.today + (day - 1), to: Date.today + day).to_datetime
+5.times do
+  31.times do |day|
+    current_datetime =
+      Faker::Time.between_dates(from: Date.today + (day - 1), to: Date.today + day).to_datetime
 
-  airport_names_and_codes.permutation(2) do |departure, arrival|
-    Flight.create!(
-      date: current_datetime,
-      departure_airport: Airport.find_by(code: departure),
-      arrival_airport: Airport.find_by(code: arrival),
-      duration: rand(45..320)
-    )
+    airport_names_and_codes.permutation(2) do |departure, arrival|
+      Flight.create!(
+        date: current_datetime,
+        departure_airport: Airport.find_by(code: departure),
+        arrival_airport: Airport.find_by(code: arrival),
+        duration: rand(45..320)
+      )
+    end
   end
 end
+
 puts 'created flights'
