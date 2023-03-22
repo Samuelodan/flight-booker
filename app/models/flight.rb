@@ -5,4 +5,8 @@ class Flight < ApplicationRecord
   def formatted_date
     date.strftime('%e %b %Y')
   end
+
+  def formatted_time
+    date.strftime('%I:%M %p')
+  end
 end
