@@ -21,4 +21,11 @@ class Flight < ApplicationRecord
       "#{hour_count} #{pluralizable_hour} #{minute_count} #{"minute".pluralize(minute_count)}"
     end
   end
+
+
+  def info
+    first_half = "#{formatted_date} | from #{departure_airport.name} at #{formatted_time}"
+    second_half = " to #{arrival_airport.name} | duration: #{formatted_duration}"
+    first_half + second_half
+  end
 end
