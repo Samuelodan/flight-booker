@@ -5,7 +5,7 @@ class FlightsController < ApplicationController
     departure_airport = Airport.find_by(code: params[:departure_airport])
     arrival_airport = Airport.find_by(code: params[:arrival_airport])
     @found_flights = Flight.where(
-      "date = ? AND departure_airport_id = ? AND arrival_airport_id = ?",
+      "DATE(date) = ? AND departure_airport_id = ? AND arrival_airport_id = ?",
       params[:flight_date], departure_airport.id, arrival_airport.id
     )
   end
