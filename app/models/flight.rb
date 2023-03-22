@@ -9,4 +9,16 @@ class Flight < ApplicationRecord
   def formatted_time
     date.strftime('%I:%M %p')
   end
+
+  def formatted_duration
+    hour_count = duration / 60
+    minute_count = duration % 60
+    pluralizable_hour = "hour".pluralize(hour_count)
+
+    if minute_count.zero?
+      "#{hour_count} #{pluralizable_hour}"
+    else
+      "#{hour_count} #{pluralizable_hour} #{minute_count} #{"minute".pluralize(minute_count)}"
+    end
+  end
 end
