@@ -31,7 +31,12 @@
 <%= form_with url: "/bookings/new", method: :get do |f| %>
   <div>
     <%= f.label :selected_flight_id, "Available Flights" %>
-    <%= f.collection_radio_buttons :selected_flight_id, @found_flights, :id, :info %>
+    <%= f.collection_radio_buttons :selected_flight_id, @found_flights, :id, :info do |b| %>
+      <div>
+        <%= b.label %>
+        <%= b.radio_button %>
+      </div>
+    <% end %>
   </div>
   <%= f.hidden_field :no_of_passengers, value: params[:no_of_passengers] %>
   <%= f.submit "Book Flight" %>
