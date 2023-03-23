@@ -31,3 +31,14 @@
     <h3><%= flight %></h3>
   <% end %>
 <% end %>
+
+<h2>Next Step</h2>
+
+<%= form_with url: "/bookings/new", method: :get do |f| %>
+  <div>
+    <%= f.label :selected_flight_id, "Available Flights" %>
+    <%= f.collection_radio_buttons :selected_flight_id, @found_flights, :id, :info %>
+  </div>
+  <%= f.hidden_field :no_of_passengers, value: params[:no_of_passengers] %>
+  <%= f.submit "Book Flight" %>
+<% end %>
