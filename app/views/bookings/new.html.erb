@@ -1,0 +1,25 @@
+<h2>New Booking</h2>
+
+<div>
+  <h4>Flight details:</h4><br>
+  <p><%= @flight.info %></p>
+</div>
+
+<p>Enter passenger information</p>
+<%= form_with model: @booking do |form| %>
+  <%= form.hidden_field :no_of_passengers, value: @passenger_count %>
+  <%= form.hidden_field :flight_id, value: params[:selected_flight_id] %>
+  <%= form.fields_for :passengers do |passenger_form| %>
+    <p>Passenger <%= passenger_form.index + 1 %></p>
+    <div>
+      <%= passenger_form.label :name %>
+      <%= passenger_form.text_field :name %>
+    </div>
+    <div>
+      <%= passenger_form.label :email %>
+      <%= passenger_form.email_field :email %>
+    </div>
+  <% end %>
+
+  <%= form.submit "Get #{"Ticket".pluralize(@passenger_count)}" %>
+<% end %>
