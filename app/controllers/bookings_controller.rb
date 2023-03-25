@@ -5,4 +5,8 @@ class BookingsController < ApplicationController
     @passenger_count = params[:no_of_passengers].to_i
     @passenger_count.times { @booking.passengers.build }
   end
+
+  def create
+
+  end
 end
