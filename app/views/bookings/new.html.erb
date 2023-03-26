@@ -7,7 +7,6 @@
 
 <p>Enter passenger information</p>
 <%= form_with model: @booking do |form| %>
-  <%= form.hidden_field :no_of_passengers, value: @passenger_count %>
   <%= form.hidden_field :flight_id, value: params[:selected_flight_id] %>
   <%= form.fields_for :passengers do |passenger_form| %>
     <p>Passenger <%= passenger_form.index + 1 %></p>
