@@ -1,0 +1,9 @@
+<% passenger_count = @booking.passengers.count %>
+<h3>Here <%= passenger_count > 1 ? "are" : "is" %> your <%= "ticket".pluralize(passenger_count) %></h3>
+<h3>For Flight:</h3>
+<h4><%= @booking.flight.info %></h4>
+
+<h4><%= "Passenger".pluralize(passenger_count) %> Info:</h4>
+<% @booking.passengers.each do |passenger| %>
+  <p>Name: <%= passenger.name %> | Email: <%= passenger.email %></p>
+<% end %>
