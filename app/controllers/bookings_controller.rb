@@ -18,6 +18,10 @@ class BookingsController < ApplicationController
     end
   end
 
+  def show
+
+  end
+
   def booking_params
     params.require(:booking).permit(:no_of_passengers, :flight_id, passengers_attributes: [:name, :email])
   end
