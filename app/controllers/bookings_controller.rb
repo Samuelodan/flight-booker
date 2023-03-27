@@ -7,9 +7,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @flight = Flight.find(params[:booking][:flight_id])
-    @booking = @flight.bookings.build
-    @booking.passengers.build(booking_params[:passengers_attributes].values)
+    @booking = Booking.new(booking_params)
 
     if @booking.save
       redirect_to @booking, notice: "Booking Created Successfully!"
